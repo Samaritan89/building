@@ -3,6 +3,7 @@ const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const del = require('del');
 const minify = require('gulp-clean-css');
+const babel = require('gulp-babel');
 
 gulp.task('clean', () => {
   del.sync(['build']);
@@ -31,3 +32,9 @@ gulp.task('default', [
   'clean',
   'less'
 ]);
+
+gulp.task('babel', () => {
+  gulp.src('src/script/**/*')
+    .pipe(babel())
+    .pipe(gulp.dest('build/script'));
+});
