@@ -1,0 +1,19 @@
+@base: #333;
+
+.container {
+  margin: 50px auto;
+  width: 800px;
+
+  .row{
+    margin: 10px 0;
+    font-size: 24px;
+    color: lighten(@base, 50%);
+    transition: .5s;
+    cursor: pointer;
+
+    &:hover {
+      color: lighten(@base, 30%);
+    }
+
+  }
+}
