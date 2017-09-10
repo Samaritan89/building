@@ -6,7 +6,8 @@
   "scripts": {
     "gulp": "gulp",
     "gulp-watch": "gulp watch",
-    "babel": "babel src/script -d build/script"
+    "babel": "babel src/script -d build/script",
+    "webpack": "rm -rf build && webpack"
   },
   "repository": {
     "type": "git",
