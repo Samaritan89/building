@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "本地构建",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "gulp": "gulp",
+    "gulp-watch": "gulp watch"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Samaritan89/building.git"
