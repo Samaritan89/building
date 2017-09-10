@@ -1,5 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const extractLess = new ExtractTextPlugin({
   filename: "../style/[name].css",
@@ -8,7 +10,8 @@ const extractLess = new ExtractTextPlugin({
 
 module.exports = {
   entry: {
-    index: './src/script/index.js'
+    index: './src/script/index.js',
+    vendor: ['react', 'react-dom']
   },
   output: {
     path: path.resolve(__dirname, 'build/script'),
@@ -37,7 +40,11 @@ module.exports = {
     ]
   },
   plugins: [
-    extractLess
+    extractLess,
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ["vendor", "runtime"]
+    }),
+    new UglifyJSPlugin()
   ],
   // externals: {
   //   'react': 'React',
